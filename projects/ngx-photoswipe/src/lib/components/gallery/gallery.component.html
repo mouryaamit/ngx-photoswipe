@@ -1,7 +1,7 @@
 <div #ngxpsGallery class="row gallery-section">
   <div class="col-md-12">
     <div class="ngx-gallery" [ngClass]="{'no-margin': typeIsNoMargin()}">
-      <figure *ngFor="let image of images; let idx = index" [ngClass]="image.className">
+      <figure *ngFor="let image of images; let idx = index" [ngClass]="getClass(image.className,idx)">
         <a (click)="onClickImage(image, idx)" [attr.data-size]="image.size" [href]="image.img">
           <img [alt]="image.description ? image.description : ''" [src]="image.thumb" class="img-fluid">
         </a>

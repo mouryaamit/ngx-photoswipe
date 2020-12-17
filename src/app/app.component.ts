@@ -19,8 +19,7 @@ export class AppComponent implements OnInit {
           'https://trulyholiday.zen3.co.uk/740x494/Images28_b23e819e25.jpg',
         thumb:
           'https://trulyholiday.zen3.co.uk/740x494/Images28_b23e819e25.jpg',
-        description: 'Breakfree Adelaide',
-        className: 'img-main'
+        description: 'Breakfree Adelaide'
       },
       {
         img:

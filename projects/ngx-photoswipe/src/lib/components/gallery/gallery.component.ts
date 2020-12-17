@@ -43,24 +43,31 @@ export class GalleryComponent {
         const PSWP: HTMLElement = this.ngxPhotoswipeService.lightboxElement
             .nativeElement as HTMLElement;
         this.pswp = new PhotoSwipe(
-            PSWP,
-            PhotoSwipeUI_Default,
-            this.getImagesAsPhotoSwipe(),
-            this.adapter
+          PSWP,
+          PhotoSwipeUI_Default,
+          this.getImagesAsPhotoSwipe(),
+          this.adapter
         );
 
-        this.pswp.init();
-        return false;
+      this.pswp.init();
+      return false;
     }
 
-    private getImagesAsPhotoSwipe(): any[] {
-        return this.images.map((image) => ({
-            src: image.img,
-            w: image.width != null ? image.width : 4934,
-            h: image.height != null ? image.height : 3296,
-            pid: image.id,
-            title: image.description,
-          size: image.width != null ? (image.height != null ? image.width + 'x' + image.height : image.width + 'x3296') : '4934x' + image.height
-        }));
+  getClass(className, idx) {
+    if (idx == 0) {
+      return className + ' img-main';
     }
+    return className;
+  }
+
+  private getImagesAsPhotoSwipe(): any[] {
+    return this.images.map((image) => ({
+      src: image.img,
+      w: image.width != null ? image.width : 4934,
+      h: image.height != null ? image.height : 3296,
+      pid: image.id,
+      title: image.description,
+      size: image.width != null ? (image.height != null ? image.width + 'x' + image.height : image.width + 'x3296') : '4934x' + image.height
+    }));
+  }
 }
