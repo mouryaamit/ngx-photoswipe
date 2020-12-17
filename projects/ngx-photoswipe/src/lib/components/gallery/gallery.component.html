@@ -1,13 +1,24 @@
-<div class="row" #ngxpsGallery>
+<div #ngxpsGallery class="row gallery-section">
   <div class="col-md-12">
     <div class="ngx-gallery" [ngClass]="{'no-margin': typeIsNoMargin()}">
-      <figure class="col-md-2" *ngFor="let image of images; let idx = index">
-        <a [href]="image.img" data-size="4934x3296" (click)="onClickImage(image, idx)">
-          <img class="img-fluid" [src]="image.thumb" [alt]="image.description">
+      <figure *ngFor="let image of images; let idx = index" [ngClass]="image.className">
+        <a (click)="onClickImage(image, idx)" [attr.data-size]="image.size" [href]="image.img">
+          <img [alt]="image.description ? image.description : ''" [src]="image.thumb" class="img-fluid">
         </a>
       </figure>
-
       <ng-content></ng-content>
+      <button (click)="onClickImage(images[0], 0)" *ngIf="images.length > 5" class="css-1c2h9yc-NakedButton e3mkg7c0"
+              color="white" font-size="sm" type="button">
+        <div class="css-phxg8u-Box-Flex e6hqxet0">
+          <svg class="e16d2er41 css-175zd83-StyledSvg-Icon e16d2er40" fill="currentcolor" title="image"
+               viewBox="0 0 24 24">
+            <path
+              d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"></path>
+          </svg>
+          <div class="css-1xdy2mv-Hide eluxabj0">SHOW {{images.length}} IMAGES</div>
+          <div class="css-1h0rpjq-Hide eluxabj0">{{images.length}}</div>
+        </div>
+      </button>
     </div>
   </div>
 </div>

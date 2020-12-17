@@ -3,7 +3,7 @@ import * as PhotoSwipe from 'photoswipe';
 import * as PhotoSwipeUI_Default from 'photoswipe/dist/photoswipe-ui-default';
 import { Image } from '../../models/image.model';
 import { NgxPhotoswipeService } from '../../services/ngx-photoswipe.service';
-import { LightboxAdapter } from '../../adpters/lightbox-adapter';
+import { LightboxAdapter } from '../../adapters/lightbox-adapter';
 
 @Component({
     selector: 'ngxps-gallery',
@@ -60,6 +60,7 @@ export class GalleryComponent {
             h: image.height != null ? image.height : 3296,
             pid: image.id,
             title: image.description,
+          size: image.width != null ? (image.height != null ? image.width + 'x' + image.height : image.width + 'x3296') : '4934x' + image.height
         }));
     }
 }
