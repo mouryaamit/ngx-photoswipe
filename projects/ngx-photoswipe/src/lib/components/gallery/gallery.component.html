@@ -1,5 +1,5 @@
 <div #ngxpsGallery class="row gallery-section">
-  <div class="col-md-12">
+  <div class="">
     <div class="ngx-gallery" [ngClass]="{'no-margin': typeIsNoMargin()}">
       <figure *ngFor="let image of images; let idx = index" [ngClass]="getClass(image.className,idx)">
         <a (click)="onClickImage(image, idx)" [attr.data-size]="image.size" [href]="image.img">
